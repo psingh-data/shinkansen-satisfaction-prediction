@@ -1,81 +1,93 @@
 # Shinkansen Travel Experience Prediction
 
+Rank 1 solution with an accuracy of 0.9524465
+
+---
+
 ## Overview
+
 This project predicts passenger satisfaction for the Shinkansen Bullet Train using machine learning.
 
-The model was developed as part of a hackathon and achieved Rank 1 on the leaderboard with an accuracy of 0.9524465.
+The objective is to classify whether a passenger is satisfied (1) or not satisfied (0) based on travel and service-related attributes.
 
 ---
 
 ## Problem Statement
-The objective is to classify whether a passenger is satisfied (1) or not satisfied (0) based on:
 
-- Travel data (distance, delays, class)
-- Service feedback (comfort, cleanliness, catering, etc.)
+Passengers were surveyed after their journey and asked about their overall experience.
+
+The goal is to identify key factors influencing satisfaction and build a model that accurately predicts the outcome.
 
 ---
 
 ## Dataset
-The dataset consists of two components:
 
-- Travel Data: Passenger and journey-related attributes
-- Survey Data: Post-travel service ratings
+The dataset consists of two parts:
 
-Both datasets were merged using a common identifier (ID).
+- Travel Data: Contains passenger and journey-related features such as travel distance and delays  
+- Survey Data: Contains service ratings such as cleanliness, comfort, catering, and more  
+
+Both datasets are merged using a common ID.
 
 ---
 
 ## Approach
 
 ### Data Preprocessing
-- Merged travel and survey datasets
-- Handled missing values using median (numerical) and default categories (categorical)
-- Ensured consistency between training and testing data
+- Merged travel and survey datasets  
+- Handled missing values  
+- Cleaned and standardized categorical variables  
+
+---
 
 ### Feature Engineering
-The following features were created to improve model performance:
+Key features created include:
 
-- Total_Delay: Combined arrival and departure delay
-- Service_Mean: Average service rating
-- Service_Std: Variation in service ratings
-- High_Service_Count: Count of high ratings
-- Low_Service_Count: Count of low ratings
-- Delay_Impact: Interaction between delay and service quality
-- Experience_Score: Combined metric of service and delay
+- Total Delay (arrival + departure delay)  
+- Service Mean and Standard Deviation  
+- High and Low Service Count  
+- Delay Impact on Experience  
+- Combined Experience Score  
+
+---
 
 ### Model
-A LightGBM classifier was used due to its effectiveness on structured data.
+
+A LightGBM classifier was used due to its efficiency on structured data.
 
 Key parameters:
-- n_estimators = 4000
-- learning_rate = 0.01
-- num_leaves = 128
-- subsample = 0.9
-- colsample_bytree = 0.9
+- n_estimators = 4000  
+- learning_rate = 0.01  
+- num_leaves = 128  
+- subsample = 0.9  
+- colsample_bytree = 0.9  
 
-Categorical variables were encoded using one-hot encoding to avoid ordinal bias.
+Categorical variables were encoded using one-hot encoding.
 
 ---
 
 ## Results
-- Accuracy: 0.9524465
-- Rank: 1
+
+- Accuracy: 0.9524465  
+- Rank: 1  
 
 ---
 
 ## Key Insights
-- Service quality is the strongest predictor of passenger satisfaction
-- Consistency across services is more important than isolated high ratings
-- Delay impacts satisfaction, but high service quality can mitigate its effect
+
+- Service quality is the most important factor influencing satisfaction  
+- Consistency across services matters more than individual high ratings  
+- Delay affects satisfaction, but strong service can offset it  
 
 ---
 
 ## Tech Stack
-- Python
-- Pandas
-- NumPy
-- LightGBM
-- Scikit-learn
+
+- Python  
+- Pandas  
+- NumPy  
+- LightGBM  
+- Scikit-learn  
 
 ---
 
@@ -84,23 +96,26 @@ Categorical variables were encoded using one-hot encoding to avoid ordinal bias.
 shinkansen-satisfaction-prediction/
 │
 ├── notebook/
-│   └── final_solution.ipynb
+│   └── final_solution.ipynb  
 ├── submission/
-│   └── submission_V8_FINAL.csv
-├── README.md
-├── requirements.txt
+│   └── submission_V8_FINAL.csv  
+├── README.md  
+├── requirements.txt  
 
 ---
 
 ## How to Run
 
 Install dependencies:
+
 pip install -r requirements.txt
 
 Run the notebook:
+
 notebook/final_solution.ipynb
 
 ---
 
 ## Author
+
 Prabhjot Singh
