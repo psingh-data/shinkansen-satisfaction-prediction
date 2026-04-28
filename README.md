@@ -118,4 +118,4 @@ notebook/final_solution.ipynb
 
 ## Author
 
-Prabhjot Singh
+Prabhjot Singh and Anjali Ramteke
